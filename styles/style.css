@@ -1,0 +1,202 @@
+:root {
+    --color1: #f8f4f0;
+    --color2: #e04226;
+    --color3: #94a84e;
+    --color4: #118ab2ff; 
+    --color5: #073b4cff;
+    --color6: #ffd166ff;
+    --color7: #c5e8ff;
+    --font1: "Roboto", sans-serif;
+    --font2: "Birthstone", cursive;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color1);
+}
+
+p, input, label, a, li, h1, h2, h3, h4 {
+    font-family: var(--font1);
+}
+
+a {
+    text-decoration: none;
+}
+
+/*----------------------*/
+/*        Header        */
+/*----------------------*/
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1rem;
+}
+
+#menu {
+    color: black;
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+#menu::before {
+    content: "≡";
+}
+
+#menu.show::before {
+    content: "x";
+}
+
+/* nav */
+nav {
+    #navigation {
+        padding: 0;
+        background-color: var(--color6); 
+        display: none;
+
+        li {
+            padding: 1rem;
+            list-style: none;
+            font-size: large;
+            width: 100%;
+            text-align: center;
+
+            a {
+                color: black;
+            }
+        }
+
+        li:hover {
+            background-color: rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    #navigation.show {
+        display: block;
+    }
+
+    .active::before {
+        content: "s"
+    }
+}
+
+/*----------------------*/
+/*         Main         */
+/*----------------------*/
+
+/* Hero */
+.hero {
+    position: relative;
+    img {
+        width: 100%;
+    }
+    .hero-card {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 2rem;
+        background-color: rgba(0, 0, 0, 0.613);
+        color: var(--color1);
+        height: 99%;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: .4rem;
+
+        h1 {
+            font-weight: 300;
+            font-size: 4vw;
+            text-align: center;
+        
+        }
+
+        a {
+            color: black;
+            background-color: #f8f4f0cd;
+            padding: .2rem .5rem;
+            margin-top: .5rem;
+            border-radius: .5rem;
+            font-size: 2vw;
+            text-align: center;
+            max-width: 300px;
+        }
+
+        a:hover {
+            background-color:var(--color1)
+        }
+    }
+}
+
+/* Main Cards */
+
+#so-good {
+    font-family: var(--font2);
+    font-size: 6vw;
+    text-align: center;
+}
+
+.main-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+}
+
+.card img {
+    box-shadow: 0 0 5px 1px black;
+}
+
+.card:nth-child(1) {
+    background-color: var(--color4);
+}
+
+.card:nth-child(2) {
+    background-color: var(--color2);
+}
+
+.card:nth-child(3) {
+    background-color: var(--color6);
+}
+
+
+
+
+/*----------------------*/
+/*     Large View       */
+/*----------------------*/
+@media only screen and (min-width: 700px) {
+    nav #navigation, nav #navigation.show {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    #menu {
+        display: none;
+    }
+
+    .hero .hero-card a {
+        font-size: 1.5vw;
+    }
+
+    .hero .hero-card h1 {
+        font-size: 4.5vw;
+    }
+
+    .main-cards {
+        display: flex;
+    }
+}
+
