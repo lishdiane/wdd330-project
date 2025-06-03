@@ -31,6 +31,7 @@ function buildFooterContent() {
 }
 
 function showMenu() {
+    // hamburger menu for small view
     const menuButton = document.querySelector("#menu");
     const nav = document.querySelector("#navigation");
 

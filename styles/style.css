@@ -1,10 +1,10 @@
 :root {
     --color1: #f8f4f0;
-    --color2: #e04226;
+    --color2: #e04826b4;
     --color3: #94a84e;
     --color4: #118ab2ff; 
     --color5: #073b4cff;
-    --color6: #ffd166ff;
+    --color6: rgba(255, 209, 102, 0.955);
     --color7: #c5e8ff;
     --font1: "Roboto", sans-serif;
     --font2: "Birthstone", cursive;
@@ -25,6 +25,7 @@ p, input, label, a, li, h1, h2, h3, h4 {
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 /*----------------------*/
@@ -94,6 +95,7 @@ nav {
     position: relative;
     img {
         width: 100%;
+        box-shadow: 0 0 1px black;
     }
     .hero-card {
         position: absolute;
@@ -112,7 +114,7 @@ nav {
 
         h1 {
             font-weight: 300;
-            font-size: 4vw;
+            font-size: 4.1vw;
             text-align: center;
         
         }
@@ -140,6 +142,7 @@ nav {
     font-family: var(--font2);
     font-size: 6vw;
     text-align: center;
+    padding-bottom: 1rem;
 }
 
 .main-cards {
@@ -153,14 +156,26 @@ nav {
     gap: 1rem;
     align-items: center;
     padding: 1rem;
-}
 
-.card img {
-    box-shadow: 0 0 5px 1px black;
+    img {
+        box-shadow: 0 0 5px 1px black;
+    }
+
+    a {
+        font-weight: 500;
+    }
+
+    a::before {
+            content: "→ ";
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
 }
 
 .card:nth-child(1) {
-    background-color: var(--color4);
+    background-color: var(--color7);
 }
 
 .card:nth-child(2) {
@@ -171,13 +186,35 @@ nav {
     background-color: var(--color6);
 }
 
+/*----------------------*/
+/*        Footer        */
+/*----------------------*/
+
+footer {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+
+    p {
+        flex: 1.5;
+        justify-self: flex-end;
+        text-align: center;
+    }
+
+    .social-media {
+        display: flex;
+        gap: 2rem;
+        flex: 1;
+    }
+}
 
 
 
 /*----------------------*/
-/*     Large View       */
+/*      Mid View        */
 /*----------------------*/
-@media only screen and (min-width: 700px) {
+
+@media only screen and (min-width: 650px) {
     nav #navigation, nav #navigation.show {
         display: flex;
         justify-content: space-evenly;
@@ -194,9 +231,39 @@ nav {
     .hero .hero-card h1 {
         font-size: 4.5vw;
     }
+}
+
+/*----------------------*/
+/*     Large View       */
+/*----------------------*/
+@media only screen and (min-width: 850px) {
 
     .main-cards {
         display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        max-width: 85%;
+        margin: 0 auto;
+
+
+
+        .card {
+            display: flex;
+            flex-direction: column;
+             
+            h3 {
+                text-align: center;
+    
+            }
+
+            p {
+                width: 80%;
+                margin: 0 auto;
+                padding: .5rem;
+            }
+        }
     }
+
+
 }
 
