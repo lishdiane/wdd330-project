@@ -83,6 +83,3 @@ function modalTemplate(recipe) {
     <p class="instructions">${recipe.strInstructions}</p>
     <a href="${recipe}"></a>
     <a href="${recipe}"></a>`;
-}
-
-//youtube key AIzaSyBGH7LSFRX6a3Kyo9z0vcKUgJKE0BNEGPw
