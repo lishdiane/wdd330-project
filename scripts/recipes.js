@@ -58,11 +58,11 @@ function displayRecipeDetails(recipe) {
 }
 
 function modalTemplate(recipe) {
-  recipe = recipe.meals[0];
-  let itemNumber = 1;
-  const htmlStrings = [];
-  let ingredient = `strIngredient${itemNumber}`;
-  let measurement = `strMeasure${itemNumber}`;
+    recipe = recipe.meals[0];
+    let itemNumber = 1;
+    const htmlStrings = [];
+    let ingredient = `strIngredient${itemNumber}`;
+    let measurement = `strMeasure${itemNumber}`;
 
     do {
         const string = `<li>${recipe[measurement]} ${recipe[ingredient]}</li>`
@@ -83,3 +83,4 @@ function modalTemplate(recipe) {
     <p class="instructions">${recipe.strInstructions}</p>
     <a href="${recipe}"></a>
     <a href="${recipe}"></a>`;
+}
