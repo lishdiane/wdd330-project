@@ -5,7 +5,7 @@ getProductData();
 
 async function getProductData() {
     const res = await fetch(
-      "https://api-ce.kroger.com/v1/products?filter.term=milk",
+      "https://api-ce.kroger.com/v1/products/?term=milkhttps://api-ce.kroger.com/v1/products?filter.term=milk/",
       {
         method: "GET",
         cache: "no-cache",
@@ -16,7 +16,7 @@ async function getProductData() {
         },
       }
     );
-    const data = await res.json();
+    const data = await res.text();
     console.log(data);
 }
 //access-token - eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLWNlLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoidnl6bG52Y3dSUUZyRzZkWDBzU1pEQT09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJkbGlzaGZvb2RzLWJiYzYzOXZzIiwiZXhwIjoxNzQ5MDU2MDY5LCJpYXQiOjE3NDkwNTQyNjQsImlzcyI6ImFwaS1jZS5rcm9nZXIuY29tIiwic3ViIjoiMDE1MDg4OTItNmUzNC01ZTk4LTkxMGYtYTA2OTM3MDA1MzE1Iiwic2NvcGUiOiJwcm9kdWN0LmNvbXBhY3QiLCJhdXRoQXQiOjE3NDkwNTQyNjk1MDU1NjQ0NjUsImF6cCI6ImRsaXNoZm9vZHMtYmJjNjM5dnMifQ.evQpwpnOzqGHXMf3Lf7gk2SMuGycaglZ_R3s5oKuED8nya197I7eUNZNu1OnxXvICY6WvkCaQBvcWmt1654cz0HGnbKLBGskxOxESLB4S624tZYFsaSg1K30iKE73mEnKKizMvHVVCyPwP399il_oP8zZdSH3prKmAaG6-OlwsYCy2qNUlFowK-5H3bn82xSJ0KhVcKOS5VH9aSt68vwSomwjYttUKHJfaeE4cjetLBzajqjBZUxn8taRai1P4UF-sGpUR96oeHBlQJh5o5fOaS900R6qBSuifo1TfPlRfLsepfn9fv9PYWL--h1rJO0t2J_Tq4Q3RR4rijcE5IlAA

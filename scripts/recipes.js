@@ -19,7 +19,7 @@ async function displayRecipes() {
         recipes.push(recipe);
     }
 
-    const recipecards = recipes.forEach(recipe => {
+    recipes.forEach(recipe => {
         section.append(recipeTemplate(recipe));
     })
 
@@ -27,24 +27,62 @@ async function displayRecipes() {
 
 function recipeTemplate(recipe) {
     const div = document.createElement("div");
-    // const h2 = document.createElement("h2");
-    // h2.innerHTML = `${recipe.meals[0].strMeal}`;
-    // const img = `<img src="${recipe.meals[0].strMealThumb}" alt="Recipe Image">`
     
     div.innerHTML = `
     <div>
     <h2>${recipe.meals[0].strMeal}</h2>
-    <img src="${recipe.meals[0].strMealThumb}" alt="Recipe Image">
+    <img src="${recipe.meals[0].strMealThumb}" alt="A meal called ${recipe.meals[0].strMeal}." width="200" height="200" lazyload>
     </div>`;
     
     const button = document.createElement("button");
     button.classList.add("view-recipe");
     button.innerHTML = "View Recipe";
     button.addEventListener("click", () => {
-        displayModel(recipe);
+        displayRecipeDetails(recipe);
     })
 
     div.append(button);
 
     return div;
 }
+
+function displayRecipeDetails(recipe) {
+    const dialog = document.querySelector("dialog");
+    
+    dialog.innerHTML = modalTemplate(recipe);
+    dialog.showModal();
+    
+    const closeButton = document.querySelector(".close");
+    closeButton.addEventListener("click", () => dialog.close())
+
+}
+
+function modalTemplate(recipe) {
+  recipe = recipe.meals[0];
+  let itemNumber = 1;
+  const htmlStrings = [];
+  let ingredient = `strIngredient${itemNumber}`;
+  let measurement = `strMeasure${itemNumber}`;
+
+    do {
+        const string = `<li>${recipe[measurement]} ${recipe[ingredient]}</li>`
+        htmlStrings.push(string)
+        itemNumber += 1;
+        measurement = `strMeasure${itemNumber}`;
+        ingredient = `strIngredient${itemNumber}`;
+    } while (recipe[ingredient] !== "");
+    
+
+    return `
+    <button class="close">Close</button>
+    <h2 class="meal-name">${recipe.strMeal}</h2>
+    <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" width="200" height="200">
+    <h3><strong>Ingredients:</strong></h3>
+    <ul class="ingredients">${htmlStrings.join("")}</ul>
+    <h3><strong>Instructions:</strong></h3>
+    <p class="instructions">${recipe.strInstructions}</p>
+    <a href="${recipe}"></a>
+    <a href="${recipe}"></a>`;
+}
+
+//youtube key AIzaSyBGH7LSFRX6a3Kyo9z0vcKUgJKE0BNEGPw
