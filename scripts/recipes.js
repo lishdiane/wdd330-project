@@ -1,14 +1,12 @@
 import { loadHeaderFooter } from "./utils.mjs";
+import {getYoutubeData, getRecipe} from "./data.mjs";
+
+
 
 loadHeaderFooter();
 displayRecipes();
 
-async function getRecipe() {
-    const res = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
-    const data = await res.json();
-    console.log(data);
-    return data;
-}
+
 
 async function displayRecipes() {
     const section = document.querySelector("#recipes");
@@ -29,7 +27,7 @@ function recipeTemplate(recipe) {
     const div = document.createElement("div");
     
     div.innerHTML = `
-    <div>
+    <div class="recipe-card">
     <h2>${recipe.meals[0].strMeal}</h2>
     <img src="${recipe.meals[0].strMealThumb}" alt="A meal called ${recipe.meals[0].strMeal}." width="200" height="200" lazyload>
     </div>`;
@@ -46,10 +44,13 @@ function recipeTemplate(recipe) {
     return div;
 }
 
-function displayRecipeDetails(recipe) {
+async function displayRecipeDetails(recipe) {
     const dialog = document.querySelector("dialog");
-    
-    dialog.innerHTML = modalTemplate(recipe);
+    recipe = recipe.meals[0];
+    const videoId = recipe.strYoutube.split("v=")[1];
+    const youtubeVideoData = await getYoutubeData(videoId);
+
+    dialog.innerHTML = modalTemplate(recipe, youtubeVideoData);
     dialog.showModal();
     
     const closeButton = document.querySelector(".close");
@@ -57,8 +58,8 @@ function displayRecipeDetails(recipe) {
 
 }
 
-function modalTemplate(recipe) {
-    recipe = recipe.meals[0];
+function modalTemplate(recipe, videoData) {
+    
     let itemNumber = 1;
     const htmlStrings = [];
     let ingredient = `strIngredient${itemNumber}`;
@@ -76,11 +77,20 @@ function modalTemplate(recipe) {
     return `
     <button class="close">Close</button>
     <h2 class="meal-name">${recipe.strMeal}</h2>
-    <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" width="200" height="200">
+    <img src="${recipe.strMealThumb}" alt="${
+      recipe.strMeal
+    }" width="200" height="200">
     <h3><strong>Ingredients:</strong></h3>
     <ul class="ingredients">${htmlStrings.join("")}</ul>
     <h3><strong>Instructions:</strong></h3>
     <p class="instructions">${recipe.strInstructions}</p>
-    <a href="${recipe}"></a>
-    <a href="${recipe}"></a>`;
+    <h3>Youtube Link:</h3>
+    <a href="${recipe.strYoutube}">
+        <h4>${videoData.items[0].snippet.title}</h4>
+        <div class="youtubeIconOverlay">
+            <img src="${videoData.items[0].snippet.thumbnails.medium.url}" alt="">
+            <img id="overlay" src="../images/youtube-logo.svg">
+        </div>
+    </a>
+    `
 }
