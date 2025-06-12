@@ -12,14 +12,12 @@ export async function displayProducts() {
 
 function buildProductCard(product) {
   const div = document.createElement("div");
-  div.classList.add('productCard');
+  div.classList.add('product-card');
 
   div.innerHTML = `
-  <div class="product-card">
   <h2>${product.title}</h2>
   <img src="${product.images[0]}" alt="${product.title}." width="200" height="200" lazyload>
-  <p>${product.price}</p>
-  </div>`;
+  <p>$${product.price}</p>`;
 
   const button = document.createElement("button");
   button.classList.add("add-to-cart");
@@ -46,7 +44,6 @@ function addToCart(product) {
                 return true;
             }
         })
-        console.log("already in cart")
     } 
 
     if (inCart === null || inCart === undefined) {

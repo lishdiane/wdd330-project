@@ -87,7 +87,7 @@ nav {
 }
 
 /*----------------------*/
-/*         Main         */
+/*        Home Main     */
 /*----------------------*/
 
 /* Hero */
@@ -136,7 +136,7 @@ nav {
     }
 }
 
-/* Main Cards */
+/* Home Cards */
 
 #so-good {
     font-family: var(--font2);
@@ -185,6 +185,75 @@ nav {
 .card:nth-child(3) {
     background-color: var(--color6);
 }
+
+/*---------------------------*/
+/* Product and Recipies Main */
+/*---------------------------*/
+
+/* Main Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Card Flex */
+.product-card, .recipe-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0 0 5px .5px var(--color5);
+    border-radius: .5rem;
+}
+
+.product-card button, .recipe-card button {
+    margin-top: 1rem;
+}
+
+/* Recipe's Dialog Modal */
+dialog {
+max-width: 600px;
+margin: 0 auto;
+}
+
+dialog h2, dialog h3, dialog h4 {
+    padding-bottom: .5rem;
+}
+
+dialog h3 {
+padding-top: 2rem;
+}
+
+dialog button {
+    position: relative;
+    left: 90%
+}
+
+.youtubeIconOverlay {
+    position: relative;
+    width: 300px;
+    box-shadow: 0 0 3px black;
+
+
+    #youtube-img {
+        width: 100%;
+    }
+
+    #overlay {
+        position: absolute;
+        right: 118px;
+        top: 52.4px;
+    }
+}
+
+.youtubeIconOverlay:hover {
+    box-shadow: 0 0 1px 1px black;
+}
+
+
 
 /*----------------------*/
 /*        Footer        */
