@@ -1,5 +1,9 @@
 import {getYoutubeData, getRecipe} from "./data.mjs";
+import { buildFooterContent, showMenu } from "./utils.mjs";
 
+
+buildFooterContent();
+showMenu();
 
 displayRecipes();
 

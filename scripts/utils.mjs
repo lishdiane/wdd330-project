@@ -19,7 +19,7 @@
 //     buildFooterContent()
 // }
 
-function buildFooterContent() {
+export function buildFooterContent() {
     //get year and modification date and insert into footer
     const year = document.querySelector('#currentYear');
     const modifies = document.querySelector("#lastModified");
@@ -30,7 +30,7 @@ function buildFooterContent() {
     modifies.innerHTML = document.lastModified;
 }
 
-function showMenu() {
+export function showMenu() {
     // hamburger menu for small view
     const menuButton = document.querySelector("#menu");
     const nav = document.querySelector("#navigation");

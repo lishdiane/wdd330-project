@@ -1,7 +1,10 @@
 import { getStorage } from "./data.mjs";
+import { buildFooterContent, showMenu } from "./utils.mjs";
 
 
 displayShoppingCart();
+buildFooterContent();
+showMenu();
 
 function displayShoppingCart() {
     const cartItems = getStorage("cart");
