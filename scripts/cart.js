@@ -1,7 +1,6 @@
-import { loadHeaderFooter } from "./utils.mjs";
 import { getStorage } from "./data.mjs";
 
-loadHeaderFooter();
+
 displayShoppingCart();
 
 function displayShoppingCart() {

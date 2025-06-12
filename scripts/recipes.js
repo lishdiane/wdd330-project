@@ -1,9 +1,6 @@
-import { loadHeaderFooter } from "./utils.mjs";
 import {getYoutubeData, getRecipe} from "./data.mjs";
 
 
-
-loadHeaderFooter();
 displayRecipes();
 
 
