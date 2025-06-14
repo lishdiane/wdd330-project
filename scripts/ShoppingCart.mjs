@@ -8,15 +8,17 @@ export default function displayShoppingCart() {
     const htmlStrings = cartItems.map(cartCardTemplate).join("");
     section.innerHTML = htmlStrings;
     section.insertAdjacentHTML("beforeend", getCartTotalsHtml(cartItems));
+  } else {
+    section.innerHTML = "There are no items in your cart."
   }
 }
 
 function cartCardTemplate(product) {
   return `
     <div class="cart-card">
-        <img src="${product.images[0]}" alt="${product.title}." width="200" height="200" lazyload>
+        <img src="${product.images[0]}" alt="${product.title}." width="100" height="100" lazyload>
         <h2>${product.title}</h2>
-        <p>${product.price}</p>
+        <p>${product.price.toFixed(2)}</p>
         <p>${product.quantity}</p>
     </div>`;
 }

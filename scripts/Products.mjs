@@ -25,6 +25,20 @@ function buildProductCard(product) {
 
   button.addEventListener("click", () => {
     addToCart(product);
+    Toastify({
+      text: `${product.title} was added to the cart!`,
+      duration: 3000,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #118ab2ff, #073b4cff)",
+      },
+      onClick: function () {}, // Callback after click
+    }).showToast();
   })
 
   div.append(button);
