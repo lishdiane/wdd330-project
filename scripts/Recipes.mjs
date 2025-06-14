@@ -20,7 +20,7 @@ function recipeTemplate(recipe) {
 
   div.innerHTML = `
     <h2>${recipe.meals[0].strMeal}</h2>
-    <img src="${recipe.meals[0].strMealThumb}" alt="A meal called ${recipe.meals[0].strMeal}." width="200" height="200" lazyload>`;
+    <img src="${recipe.meals[0].strMealThumb}" alt="A meal called ${recipe.meals[0].strMeal}." width="200" height="200" loading="lazy>`;
 
   const button = document.createElement("button");
   button.classList.add("view-recipe");

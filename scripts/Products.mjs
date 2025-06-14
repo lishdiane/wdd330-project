@@ -16,7 +16,7 @@ function buildProductCard(product) {
 
   div.innerHTML = `
   <h2>${product.title}</h2>
-  <img src="${product.images[0]}" alt="${product.title}." width="200" height="200" lazyload>
+  <img src="${product.images[0]}" alt="${product.title}." width="200" height="200" loading="lazy">
   <p>$${product.price}</p>`;
 
   const button = document.createElement("button");
