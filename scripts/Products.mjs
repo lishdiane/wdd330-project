@@ -1,7 +1,8 @@
 import { getProductData, setStorage, getStorage } from "./data.mjs";
-
+import { addSubscript } from "./utils.mjs";
 
 export async function displayProducts() {
+  //Display product card to product page
   const products = await getProductData();
   const productSection = document.querySelector("#product-cards");
 
@@ -11,8 +12,10 @@ export async function displayProducts() {
 }
 
 function buildProductCard(product) {
+  //Use product data to build product cards
+  //return card div
   const div = document.createElement("div");
-  div.classList.add('product-card');
+  div.classList.add("product-card");
 
   div.innerHTML = `
   <h2>${product.title}</h2>
@@ -25,6 +28,7 @@ function buildProductCard(product) {
 
   button.addEventListener("click", () => {
     addToCart(product);
+    addSubscript();
     Toastify({
       text: `${product.title} was added to the cart!`,
       duration: 3000,
@@ -39,31 +43,31 @@ function buildProductCard(product) {
       },
       onClick: function () {}, // Callback after click
     }).showToast();
-  })
+  });
 
   div.append(button);
 
   return div;
-
 }
 
 function addToCart(product) {
-    const cart = getStorage("cart");
-    let inCart = null;
+  //Add product to cart, adjust product quantity, and save to local storage.
+  const cart = getStorage("cart");
+  let inCart = null;
 
-    if (cart.length > 0) {
-        inCart = cart.find((item, i) => {
-            if (item.id === product.id) {
-                cart[i].quantity += 1;
-                return true;
-            }
-        })
-    } 
+  if (cart.length > 0) {
+    inCart = cart.find((item, i) => {
+      if (item.id === product.id) {
+        cart[i].quantity += 1;
+        return true;
+      }
+    });
+  }
 
-    if (inCart === null || inCart === undefined) {
-        product.quantity = 1;
-        cart.push(product);
-    }
-    
-    setStorage("cart", cart)
+  if (inCart === null || inCart === undefined) {
+    product.quantity = 1;
+    cart.push(product);
+  }
+
+  setStorage("cart", cart);
 }

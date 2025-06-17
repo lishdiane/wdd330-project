@@ -1,10 +1,7 @@
-import { buildFooterContent, showMenu } from "./utils.mjs";
-import displayShoppingCart from "./ShoppingCart.mjs";
+import { buildFooterContent, showMenu, addSubscript } from "./utils.mjs";
+import buildShoppingCart from "./ShoppingCart.mjs";
 
-displayShoppingCart();
+buildShoppingCart();
 buildFooterContent();
 showMenu();
-
-
-
-
+addSubscript();

@@ -1,95 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D-Lish's Food</title>
-  <meta name="description" content="D-Lish's Food">
-  <meta name="author" content="Diane Lish">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <script src="scripts/main.js" type="module"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D-Lish's Food</title>
+    <meta name="description" content="D-Lish's Food" />
+    <meta name="author" content="Diane Lish" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Birthstone&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script src="scripts/main.js" type="module"></script>
+  </head>
 
-<body>
-  <header class="main-header">
-    <div>
-        <img src="./images/d-lishs-logo.png" alt="D-Lish's Food Logo" width="150" height="150">
+  <body>
+    <header class="main-header">
+      <div>
+        <img
+          src="./images/d-lishs-logo.png"
+          alt="D-Lish's Food Logo"
+          width="150"
+          height="150"
+        />
         <div>
-            <a href="#" id="menu"></a>
-            <a href="./cart/cart.html"><img src="./images/cart-logo.svg" alt="Shopping Cart Icon" width="50" height="50"></a>
+          <a href="#" id="menu"></a>
+          <div class="shopping-cart">
+            <a href="./cart/cart.html"
+              ><img
+                src="./images/cart-logo.svg"
+                alt="Shopping Cart Icon"
+                width="50"
+                height="50"
+            /></a>
+            <div id="item-number"></div>
+          </div>
         </div>
-    </div>
-    <nav>
+      </div>
+      <nav>
         <ul id="navigation">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./products/products.html">Products</a></li>
-            <li><a href="./recipes/recipes.html">Recipes</a></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products/products.html">Products</a></li>
+          <li><a href="./recipes/recipes.html">Recipes</a></li>
         </ul>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <main>
-    <div class="hero">
-        <img class="hero-img" src="./images/hero1.webp" alt="">
+    <main>
+      <div class="hero">
+        <img class="hero-img" src="./images/hero1.webp" alt="" />
         <div class="hero-card">
-            <h1>D-Lish's Foods</h1>
-            <a href="./products/products.html">Order your groceries online!</a>
+          <h1>D-Lish's Foods</h1>
+          <a href="./products/products.html">Order your groceries online!</a>
         </div>
-    </div>
+      </div>
 
-    <h2 id="so-good">Oh so good!</h2>
+      <h2 id="so-good">Oh so good!</h2>
 
-    <section class="main-cards">
+      <section class="main-cards">
         <div class="card">
-            <img src="./images/pantry-perks.webp" alt="Man smiling, holding lettuce." width="200" height="200">
-            <div>
-                <h3>Pantry-Perks Club</h3>
-                <p>Join our Pantry-Perks Club to recieve exclusive offers and coupons. Be the first to know about upcoming sales and new products. Earn points with every purchase that can later be redeemed for groceries, giftcards, and more. Sign up today in-store or online. <a href="" id="sign-up">Sign up here</a>.</p>
-            </div>    
+          <img
+            src="./images/pantry-perks.webp"
+            alt="Man smiling, holding lettuce."
+            width="200"
+            height="200"
+          />
+          <div>
+            <h3>Pantry-Perks Club</h3>
+            <p>
+              Join our Pantry-Perks Club to recieve exclusive offers and
+              coupons. Be the first to know about upcoming sales and new
+              products. Earn points with every purchase that can later be
+              redeemed for groceries, giftcards, and more. Sign up today
+              in-store or online. <a href="" id="sign-up">Sign up here</a>.
+            </p>
+          </div>
         </div>
         <div class="card">
-            <img src="./images/specials.webp" alt="Person shopping with basket." width="200" height="200">
-            <div>
-                <h3>Everyday Specials</h3>
-                <p> At D-Lish's Foods, saving money is part of your daily shopping. We hand-pick everyday specials to ensure you get the best deals on all your grocery shopping needs. No need to wait for a holiday - these deals are available all week long!</p>
-           </div>     
+          <img
+            src="./images/specials.webp"
+            alt="Person shopping with basket."
+            width="200"
+            height="200"
+          />
+          <div>
+            <h3>Everyday Specials</h3>
+            <p>
+              At D-Lish's Foods, saving money is part of your daily shopping. We
+              hand-pick everyday specials to ensure you get the best deals on
+              all your grocery shopping needs. No need to wait for a holiday -
+              these deals are available all week long!
+            </p>
+          </div>
         </div>
         <div class="card">
-            <img src="./images/order-online.webp" alt="Man holding box of groceries." width="200" height="200">
-            <div>
-                <h3>Order Online</h3>
-                <p>Now offering online ordering! Shopping has never been easier. Pick up or delivery, we offer everything you need that fits your schedule. We even offer digital coupons only available through our website or app. <a href="products/products/html">Order Now</a></p>
-            </div>
+          <img
+            src="./images/order-online.webp"
+            alt="Man holding box of groceries."
+            width="200"
+            height="200"
+          />
+          <div>
+            <h3>Order Online</h3>
+            <p>
+              Now offering online ordering! Shopping has never been easier. Pick
+              up or delivery, we offer everything you need that fits your
+              schedule. We even offer digital coupons only available through our
+              website or app. <a href="products/products/html">Order Now</a>
+            </p>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <form action="thankyou.html" method="get">
+      <form action="thankyou.html" method="get">
         <h3>Join Our Pantry-Perks Club</h3>
         <p>Required <span class="required">*</span></p>
-        <label><input id="fname" name="fname" type="text" required placeholder="John" title="Please enter your first name." autocomplete="given-name">First Name <span class="required">*</span></label>
-        <label><input id="lname" name="lname" type="text" required placeholder="Doe" title="Please enter your last name." autocomplete="family-name">Last Name <span class="required">*</span></label>
-        <label><input id="email" name="email" type="email" required placeholder="johndoe@email.com" title="Please enter a valid email address." autocomplete="email">Email <span class="required">*</span></label>
+        <label
+          ><input
+            id="fname"
+            name="fname"
+            type="text"
+            required
+            title="Please enter your first name."
+            autocomplete="given-name"
+          />First Name <span class="required">*</span></label
+        >
+        <label
+          ><input
+            id="lname"
+            name="lname"
+            type="text"
+            required
+            title="Please enter your last name."
+            autocomplete="family-name"
+          />Last Name <span class="required">*</span></label
+        >
+        <label
+          ><input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="johndoe@email.com"
+            title="Please enter a valid email address."
+            autocomplete="email"
+          />Email <span class="required">*</span></label
+        >
         <button class="submit" type="submit">Join</button>
-    </form>
+      </form>
+    </main>
 
-  </main>
+    <footer class="main-footer">
+      <p>
+        ©<span id="currentYear"></span> 🌷 Diane Lish | United States <br />
+        Last Modified <span id="lastModified"></span>
+      </p>
 
-  <footer class="main-footer">
-    <p>©<span id="currentYear"></span> 🌷 Diane Lish | United States <br>
-        Last Modified <span id="lastModified"></span></p>
-    
-    <div class="social-media">
-        <a href="https://www.youtube.com/"><img src="./images/youtube-logo.svg" alt="Youtube logo" width="30"
-                height="30" loading="lazy"></a>
-        <a href="https://x.com/"><img src="./images/twitter-logo.svg" alt="Twitter logo" width="30" height="30"
-                loading="lazy"></a>
-        <a href="https://www.facebook.com/"><img src="./images/facebook-logo.svg" alt="Facebook logo" width="30"
-                height="30" loading="lazy"></a>
-    </div>
-  </footer>
-</body>
+      <div class="social-media">
+        <a href="https://www.youtube.com/"
+          ><img
+            src="./images/youtube-logo.svg"
+            alt="Youtube logo"
+            width="30"
+            height="30"
+            loading="lazy"
+        /></a>
+        <a href="https://x.com/"
+          ><img
+            src="./images/twitter-logo.svg"
+            alt="Twitter logo"
+            width="30"
+            height="30"
+            loading="lazy"
+        /></a>
+        <a href="https://www.facebook.com/"
+          ><img
+            src="./images/facebook-logo.svg"
+            alt="Facebook logo"
+            width="30"
+            height="30"
+            loading="lazy"
+        /></a>
+      </div>
+    </footer>
+  </body>
 </html>
