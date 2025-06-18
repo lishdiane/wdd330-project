@@ -1,6 +1,8 @@
 import { getYoutubeData, getRecipe, setStorage, getStorage } from "./data.mjs";
 
 export default async function displayPage() {
+  displayRecipes();
+
   const h2 = document.querySelector("#recipes-heading");
 
   const showFavorites = document.querySelector("#show-favorites");
