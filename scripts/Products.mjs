@@ -9,6 +9,8 @@ export async function displayProducts() {
   for (const product of products.products) {
     productSection.append(buildProductCard(product));
   }
+
+  console.log(products);
 }
 
 function buildProductCard(product) {

@@ -73,10 +73,10 @@ function recipeTemplate(recipe) {
   //listen for check box change
   input.addEventListener("change", function () {
     if (this.checked) {
-      console.log("checked");
+   
       addToFavorites(recipe);
     } else {
-      console.log("not checked");
+  
       removeFromFavorites(recipe);
     }
   });
@@ -107,6 +107,9 @@ async function displayRecipeDetails(recipe) {
     youtubeVideoData = await getYoutubeData(videoId);
   }
 
+  console.log(recipe);
+  console.log(youtubeVideoData);
+
   //display dialog modal
   dialog.innerHTML = modalTemplate(recipe, youtubeVideoData);
   dialog.showModal();
@@ -118,7 +121,8 @@ async function displayRecipeDetails(recipe) {
 
 function modalTemplate(recipe, videoData) {
   //Compile recipe and youtube data and return a template for the recipe modal
-  console.log(recipe);
+
+
   let itemNumber = 1;
   const htmlStrings = [];
   let ingredient = `strIngredient${itemNumber}`;
@@ -190,7 +194,6 @@ function addToFavorites(recipe) {
   const favorites = getStorage("favorites") || [];
   favorites.push(recipe);
   setStorage("favorites", favorites);
-  console.log(favorites);
 }
 
 function removeFromFavorites(recipe) {
@@ -198,7 +201,6 @@ function removeFromFavorites(recipe) {
   const index = favorites.indexOf(recipe);
   favorites.splice(index, 1);
   setStorage("favorites", favorites);
-  console.log(favorites);
 }
 
 function isIn(item, array) {
@@ -222,14 +224,3 @@ function displayFavorites() {
   });
 }
 
-//   const favoritesModal = document.querySelector("#favorites-modal");
-
-// for (const recipe of favoritesList) {
-//     favoritesModal.append(recipeTemplate(recipe));
-//   };
-
-//   favoritesModal.showModal();
-
-//   const closeFavorites = document.querySelector(".close-favorites");
-//   closeFavorites.addEventListener("click", () => dialog.close());
-// }

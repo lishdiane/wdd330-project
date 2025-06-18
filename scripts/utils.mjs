@@ -29,7 +29,7 @@ export function addSubscript() {
   itemNumber.textContent = getTotalItems(order);
 }
 
-export function getTotalItems(array) {
+function getTotalItems(array) {
   const totalItems = array.reduce((pv, item) => {
     return pv + item.quantity;
   }, 0);
