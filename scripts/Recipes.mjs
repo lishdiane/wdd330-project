@@ -198,6 +198,7 @@ function modalTemplate(recipe, videoData) {
 }
 
 function addToFavorites(recipe) {
+
   const favorites = getStorage("favorites") || [];
   favorites.push(recipe);
   setStorage("favorites", favorites);
@@ -221,6 +222,7 @@ function isIn(item, array) {
 function displayFavorites() {
   const favoritesList = getStorage("favorites");
   const section = document.querySelector("#recipes");
+  section.innerHTML = "";
 
   if (favoritesList.length === 0) {
     section.innerHTML = "You have not saved any favorite recipes.";
