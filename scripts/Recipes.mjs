@@ -1,34 +1,39 @@
 import { getYoutubeData, getRecipe, setStorage, getStorage } from "./data.mjs";
 
-export default async function displayRecipes() {
+export default async function displayPage() {
+  const h2 = document.querySelector("#recipes-heading");
+
+  const showFavorites = document.querySelector("#show-favorites");
+  showFavorites.addEventListener("click", () => {
+    h2.innerHTML = "Favorites";
+    displayFavorites();
+  });
+  
+  const showAllButton = document.querySelector("#show-all");
+  showAllButton.addEventListener("click", () => {
+    h2.innerHTML = "Recipes";
+    displayRecipes();
+  });
+ 
+}
+
+ async function displayRecipes() {
   //Display recipe cards on recipe page
 
   const section = document.querySelector("#recipes");
-  const h2 = document.querySelector("#recipes-heading");
-
+  
+  section.innerHTML = "";
+  
   const recipes = [];
   for (let i = 0; i < 6; i++) {
     const recipe = await getRecipe();
     recipes.push(recipe);
   }
 
-  recipes.forEach((recipe) => {
-    section.append(recipeTemplate(recipe.meals[0]));
+  recipes.forEach((item) => {
+    section.append(recipeTemplate(item.meals[0]));
   });
 
-  const showFavorites = document.querySelector("#show-favorites");
-  showFavorites.addEventListener("click", () => {
-    section.innerHTML = "";
-    h2.innerHTML = "Favorites";
-    displayFavorites();
-  });
-
-  const showAllButton = document.querySelector("#show-all");
-  showAllButton.addEventListener("click", () => {
-    section.innerHTML = "";
-    h2.innerHTML = "Recipes";
-    displayRecipes();
-  });
 }
 
 function recipeTemplate(recipe) {
@@ -59,7 +64,7 @@ function recipeTemplate(recipe) {
 
   const input = document.createElement("input");
   input.type = "checkbox";
-  input.id = "favorite";
+  input.class = "favorite";
   input.name = "favorite";
 
   const itemIsIn = isIn(recipe, favorites);
