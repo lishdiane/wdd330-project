@@ -27,7 +27,7 @@ export default async function displayPage() {
   section.innerHTML = "";
   
   const recipes = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 8; i++) {
     const recipe = await getRecipe();
     recipes.push(recipe);
   }
